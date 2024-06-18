@@ -34,7 +34,7 @@ let tareas = [
 const crearTarea = async (tarea) => {
     // enviar consulta a la API para crear una tarea
     // alert('tarea creada')
-    await fetch('https://proyecto-final-backend-seven.vercel.app/api/v1/tareas', {
+    await fetch('http://localhost:3000/api/v1/tareas', {
         method: 'POST',
         body: JSON.stringify(tarea),
         headers: {
@@ -54,7 +54,7 @@ const obtenerTareas = async () => {
         query = '?estado=' + estado
     }
 
-    const response = await fetch('https://proyecto-final-backend-seven.vercel.app/api/v1/tareas' + query)
+    const response = await fetch('http://localhost:3000/api/v1/tareas' + query)
     const data = await response.json()
 
     return data.data
@@ -66,10 +66,11 @@ const verTarea = async (id) => {
     // enviar consulta a la API para obtener la tarea con el id
     // alert('tarea obtenida')
 
-    const response = await fetch('https://proyecto-final-backend-seven.vercel.app/api/v1/tareas/' + id)
+    const response = await fetch('http://localhost:3000/api/v1/tareas' + id)
     const data = await response.json()
 
     return data.data
+    
 
     /* const tareaEncontrada = tareas.find((tarea) => {
         if (id === tarea._id) {
@@ -89,7 +90,7 @@ const editarTarea = async (id, tareaEditada) => {
     // enviar consulta a la API para obtener la tarea con el id
     // alert('tarea editada')
 
-    await fetch('https://proyecto-final-backend-seven.vercel.app/api/v1/tareas/' + id, {
+    await fetch('http://localhost:3000/api/v1/tareas' + id, {
         method: 'PUT',
         body: JSON.stringify(tareaEditada),
         headers: {
@@ -114,7 +115,7 @@ const eliminarTarea = async (id) => {
     // enviar consulta a la API para eliminar la tarea con el id
     // alert('tarea eliminada')
 
-    await fetch('https://proyecto-final-backend-seven.vercel.app/api/v1/tareas/' + id, {
+    await fetch('http://localhost:3000/api/v1/tareas' + id, {
         method: 'DELETE'
     })
 
